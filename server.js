@@ -1,12 +1,14 @@
 const express = require('express');
+const cors = require('cors')
 const app = express();
-port = 3000;
+app.use(cors())
+port = 8000;
 
-require('./server/config/mongoose.config')
+require('./server/config/mongoose.config');
 
-app.use(express.json(), express.urlencoded({extended: true}))
+app.use(express.json(), express.urlencoded({extended: true}));
 
-require('./server/routes/jokes.route')(app);
+require('./server/routes/products.route')(app);
 
-app.listen(port, ()=>console.log(`we running on port ${port}. Aaaaeeeeyyyy!!!`))
+app.listen(port, ()=>console.log(`we running on port ${port}. Aaaaeeeeyyyy!!!`));
 
